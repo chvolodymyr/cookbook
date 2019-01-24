@@ -1,6 +1,4 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {CategoryService} from "../../shared/services/category.service";
-import {Category} from "../../shared/models/Category";
 import {FormControl, FormGroup, NgForm} from "@angular/forms";
 import {RecipeService} from "../../shared/services/recipe.service";
 import {Recipe} from "../../shared/models/Recipe";
@@ -17,7 +15,7 @@ import {of} from "rxjs";
 export class CreateRecipeComponent implements OnInit {
   @ViewChild('input') inputRef: ElementRef;
   recipeForm: FormGroup;
-  categories: Category[];
+  categories: Array<any>;
   recipe: Recipe;
   difficaltly: Array<any>;
   image: File;
@@ -26,7 +24,6 @@ export class CreateRecipeComponent implements OnInit {
   isNew: boolean = true;
 
   constructor(
-    private categoryService: CategoryService,
     private recipeServices: RecipeService,
     private route: ActivatedRoute ,
     private router: Router) {
@@ -59,7 +56,7 @@ export class CreateRecipeComponent implements OnInit {
                 title: this.recipe.title,
                 description: this.recipe.description,
                 time: this.recipe.time,
-          portions: this.recipe.portions,
+                portions: this.recipe.portions,
                 ingredients: this.recipe.ingredients,
                 imgSource: this.recipe.imgSource ? this.recipe.imgSource : '',
                 difficaltly: this.recipe.difficaltly,
@@ -68,13 +65,20 @@ export class CreateRecipeComponent implements OnInit {
       }
     });
 
-    this.getAllCategory();
+    this.categories = [
+      {name: 'Перші страви'},
+      {name: 'Другі страви'},
+      {name: 'Напої'},
+      {name: 'Десерти'},
+      {name: 'Запіканки'}
+    ];
     this.difficaltly = [
       {name: "Легко"},
       {name: "Середня"},
       {name: "Важка"}
     ];
   }
+
 
   triggerClick() {
     this.inputRef.nativeElement.click()
@@ -91,11 +95,6 @@ export class CreateRecipeComponent implements OnInit {
     reader.readAsDataURL(file)
   }
 
-  getAllCategory() {
-    this.categoryService.getAll().subscribe((res: any) => {
-      this.categories = res;
-    })
-  }
 
   createRecipe(recipeForm: NgForm) {
     let $obs;
@@ -106,7 +105,7 @@ export class CreateRecipeComponent implements OnInit {
     }
       $obs.subscribe(res =>{ this.recipe = res;
           this.recipeForm.enable();
-        this.router.navigate([''], {});
+          this.router.navigate([''], {});
       })
       }
   }

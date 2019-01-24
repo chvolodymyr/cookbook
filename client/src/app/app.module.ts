@@ -12,7 +12,6 @@ import { RecipeCardComponentComponent } from './components/recipe-card-component
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 import { LoaderComponent } from './components/main-page/loader/loader.component';
 import { HistoryPageComponent } from './components/history-page/history-page.component';
-
 @NgModule({
   declarations: [
     AppComponent,

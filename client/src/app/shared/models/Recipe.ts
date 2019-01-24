@@ -10,7 +10,6 @@ export class Recipe {
     public  ingredients: string = '',
     public difficaltly: string = '',
     public description: string = '',
-    public v: string
   ) {
   }
 }

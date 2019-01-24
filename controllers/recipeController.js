@@ -15,7 +15,6 @@ module.exports.getAll = async function (req, res) {
                 LastVersionArr.push(recipe)
             }
         }
-
         res.status(200).json(LastVersionArr)
     } catch (e) {
         errorHandler(res, e);
