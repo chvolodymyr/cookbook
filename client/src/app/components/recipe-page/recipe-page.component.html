@@ -1,0 +1,45 @@
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-12 col-md-10 offset-md-1">
+      <h1 class="mt-4 font-weight-bolder ">{{recipe.title}}
+      </h1>
+      <span class="text-muted  light-font right">{{recipe.date| date: 'dd.MM.yy HH:mm'}}</span>
+      <div class="mt-3 container">
+        <div class="row">
+ <div class="col-lg-4 col-12">
+          <div class="img-container col-12">
+            <img src="{{recipe.imgSource}}" class="img-fluid mt-1  " alt="">
+          </div>
+          <div class="mt-3 col-12  ">
+
+            <span>Час приготування:  </span>
+            <p class="font-weight-bold d-inline-block">{{recipe.time}}</p>
+
+          <br>
+            <span>Кількість процій:  </span>
+            <p class="font-weight-bold d-inline-block">{{recipe.portions}}</p>
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-12 ">
+          <div class="row">
+            <h3 class=" col-12 mt-lg-0 mt-2">Інгрідієнти</h3>
+            <div class=" col-10">{{recipe.ingredients}}</div>
+
+            <div class="col-12">
+              <h3 class=" mt-2">Приготування</h3>
+              <div class=" mb-5">{{recipe.description}}</div>
+            </div>
+
+          </div>
+
+          <button routerLink="/recipe/history/{{recipe._id}}" class="orange-darken-2  btn  "> Версії рецептів</button>
+          <button routerLink="" class="orange-darken-2  btn  ">Повернутись до рецептів</button>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>  </div>

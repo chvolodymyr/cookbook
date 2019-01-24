@@ -1,0 +1,43 @@
+
+<div class="container" >
+
+  <div class="row" >
+    <div class="col-12 border rounded mt-2 col-md-10 offset-md-1"*ngFor="let version of versions">
+      <h1 class="mt-4 font-weight-bolder ">{{version.title}}
+      </h1>
+      <span class="text-muted  light-font right">{{version.date| date: 'dd.MM.yy HH:mm'}}</span>
+      <div class="mt-3 container">
+        <div class="row">
+          <div class="col-lg-4 col-12">
+            <div class="img-container col-12">
+              <img src="{{version.imgSource}}" class="img-fluid mt-1  " alt="">
+            </div>
+            <div class="mt-3 col-12  ">
+
+              <span>Час приготування:  </span>
+              <p class="font-weight-bold d-inline-block">{{version.time}}</p>
+
+              <br>
+              <span>Кількість процій:  </span>
+              <p class="font-weight-bold d-inline-block">{{version.portions}}</p>
+            </div>
+          </div>
+
+          <div class="col-lg-8 col-12 ">
+            <div class="row">
+              <h3 class=" col-12 mt-lg-0 mt-2">Інгрідієнти</h3>
+              <div class=" col-10">{{version.ingredients}}</div>
+
+              <div class="col-12">
+                <h3 class=" mt-2">Приготування</h3>
+                <div class=" mb-5">{{version.description}}</div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div><div class="col-12 col-lg-12 offset-0 offset-lg-4 mb-5"><button  routerLink="" class="orange-darken-2  btn ">Повернутись до рецептів</button>
+  </div>   </div>   </div>

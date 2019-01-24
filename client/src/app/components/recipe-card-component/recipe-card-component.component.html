@@ -1,0 +1,13 @@
+<div  class=" card col-sm-5 col-lg-3 col-10 ml-1 d-inline-block mt-3 h-100"   *ngFor="let recipe of recipes" >
+  <div class="img-container">
+    <button class=" remove" (click)="remove(recipe)">Видалити</button>
+  <img src='{{recipe.imgSource}}' class="img-fluid mt-3 img-recipe"  alt="...">
+  </div>
+  <div class="card-body">
+    <a class="edit float-right" routerLink="create/{{recipe._id}}">Редагувати</a>
+    <h5 class="card-title">{{recipe.title}}</h5>
+    <button routerLink="recipe/{{recipe._id}}" class="btn  orange-darken-2">Переглянути</button>
+
+    <br> <span class="text-black-50" title="{{recipe.date}}">{{recipe.date | date: 'dd/M/yy HH:MM:ss' }}</span>
+  </div>
+</div>

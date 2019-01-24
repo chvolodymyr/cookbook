@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="col-12 col-lg-6 offset-0 offset-lg-4 mb-2 mt-2">
+  <h2 > {{isNew ? 'Добавити': 'Редегувати' }} рецепт </h2>
+  </div>
+  <div class="row offset-md-4 offset-0">
+
+    <form   [formGroup]="recipeForm" (ngSubmit)=" createRecipe(recipeForm)">
+      <!-- Grid row -->
+      <div class="form-row col-md-6  col-12 orange" >
+        <!-- Default input -->
+        <div class="form-group col-12 mt-2">
+          <label for="inputName">Назва</label>
+          <input   formControlName="title" type="text" name="title"   class="form-control" id="inputName" placeholder="Назва">
+        </div>
+        <img [src]="imagePreview" class="img-thumbnail" alt="">
+
+        <div class="input-group mb-3">
+          <div class="custom-file col-12">
+            <label class="mt-2" for="file">Виберіть картинку</label>
+            <input  formControlName="imgSource" id="file"    #input
+                    (change)="onFileUpload($event)"
+                    type="file" class="dn"  name="imgSource" >
+            <button
+              (click)="triggerClick()"
+              [disabled]="recipeForm.disabled || recipeForm.disabled"
+              class="upload d-block "></button>
+
+          </div>
+
+        </div>
+
+        <!-- Default input -->
+        <div class="form-group col-12  ">
+          <div class="">
+            <select formControlName="category"  name="category" class="browser-default custom-select">
+              <option ng-selected="selected" disabled>Виберіть категорію</option>
+              <option  *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+            </select>
+          </div>
+        </div>
+        <!-- Grid row -->
+
+        <!-- Default input -->
+        <div class="form-group col-12">
+          <label for="form7">Опис страви</label>
+          <textarea formControlName="description"   type="text" id="form7" class="md-textarea   form-control"  name="description" ></textarea>
+        </div>
+        <!-- Default input -->
+        <div class="form-group col-12">
+          <label for="inputTime"> Час приготування </label>
+          <input formControlName="time"    type="text" name="time" class="form-control " id="inputTime"
+                 placeholder="Час приготування">
+
+        </div>
+        <!-- Grid row -->
+        <div class="form-row col-12">
+          <!-- Default input -->
+          <div class="form-group col-12">
+            <label for="inputIngridients"> Інгрідієнти </label>
+            <textarea formControlName="ingredients"   type="text" name="" class="form-control" id="inputIngridients" placeholder="Інгрідієнти">
+            </textarea>
+          </div>
+
+
+
+        </div>
+
+        <div class="row">
+        <div class="form-group col-6  ">
+          <div class="">
+            <label >Виберіть складність</label>
+            <select formControlName="difficaltly"   name="difficaltly" class="browser-default custom-select">
+
+              <option *ngFor="let difficalt  of difficaltly">{{difficalt.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-6">
+          <label for="inputPortions"> Кількість порцій </label>
+          <input formControlName="portions"    type="text" name="portions" class="form-control" id="inputPortions" placeholder="Кількість">
+        </div>
+      </div>
+      </div>
+        <!-- Grid row -->
+      <div class="col-12 col-lg-6 offset-0 offset-lg-1 mb-5 ">
+        <button type="submit"   class="btn pl-5 pr-5 orange-darken-2 btn-md"  >{{isNew ? 'Добавити': 'Редегувати' }}</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
