@@ -6,10 +6,11 @@ Clone or download zip
 
 ### Open project 
 Run mongod server.
-Start this comands in project folder
+Run comand in project folder then in client folder:
 ```
 npm i
 ```
+then
 ```
 npm run dev
 ```
