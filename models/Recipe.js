@@ -27,8 +27,7 @@ const recipeSchema = new Schema({
         type: String
     },
     category: {
-        ref: 'category',
-        type: Schema.ObjectId
+        type: String
     },
     date: {
         type: Date,
