@@ -4,7 +4,6 @@ const morgan = require('morgan');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const recipe = require('./router/recipeRouter');
-const category = require('./router/categoryRouter');
 const history = require('./router/historyRouter');
 
 const app = express();
@@ -23,7 +22,6 @@ mongoose.connect("mongodb://localhost:27018/CookBook", { useNewUrlParser: true ,
 
 
 app.use('/api/recipe',recipe);
-app.use('/api/category',category);
 app.use('/api/history',history);
 
 app.listen(port, ()=> console.log(`Server has been started on ${port}`));
